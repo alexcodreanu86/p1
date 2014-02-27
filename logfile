@@ -1,0 +1,7 @@
+LOG:  database system was shut down at 2014-02-25 20:05:15 CST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "p1_development" does not exist
+FATAL:  database "p1_development" does not exist
+ERROR:  column proficiencies.skill_id does not exist at character 79
+STATEMENT:  SELECT "skills".* FROM "skills" INNER JOIN "proficiencies" ON "skills"."id" = "proficiencies"."skill_id" WHERE "proficiencies"."user_id" = $1
