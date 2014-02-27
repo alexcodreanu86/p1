@@ -1,6 +1,6 @@
 <div class="container">
   <h1>User Skills and Levels</h1>
-  <table >
+  <table style="width: 90%">
     <tr>
       <th>Name</th>
       <th>Skill</th>
@@ -8,12 +8,12 @@
       <th>Formal?</th>
     </tr> 
     <% @users.each do |user| %>
-     <% user.proficiencies.each do |proficiency| %>
-      <tr style=" border-top: 2px dotted black;">
-        <td><%= user.name %></td>
+     <% user.proficiencies.each_with_index do |proficiency,index| %>
+      <tr style="<%= (index == 0) ? "border-top: 1px dotted black;" : ""%>">
+        <td><%= (index == 0) ? user.name : ""%></td>
         <td><%= proficiency.skill.name %> (<%= proficiency.skill.context %>)</td> 
-        <td><%= proficiency.experience %> </td>
-        <td><%= proficiency.formal_education ? "yes" : "no"%></td>
+        <td style="text-align: center"><%= proficiency.experience %></td>
+        <td style="text-align: center"><%= proficiency.formal_education ? "yes" : "no"%></td>
       </tr>
       <% end %>
     <% end %>

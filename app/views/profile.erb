@@ -1,0 +1,7 @@
+<h1><%= @user.name %> profile</h1>
+  <p> Click on skill to edit:</p>
+<ul>
+<% @user.proficiencies.each do |prof| %>
+  <li><a href="/skills/<%= prof.skill.id%>"><%= prof.skill.name %></a></li>
+<% end %>
+</ul>

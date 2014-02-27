@@ -1,0 +1,8 @@
+<h1>Change Skill <%=@skill.name%> with:</h1>
+
+<form>
+  <% @all_skils.each do |skill| %>
+  <input type="radio" name="<%=skill.name%>" value="male">Male<br>
+
+<% end %>
+</form>  

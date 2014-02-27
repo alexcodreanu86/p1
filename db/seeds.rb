@@ -21,6 +21,8 @@ end
 # TODO: create associations between users and skills
 skills = Skill.all.shuffle
 User.all.each do |user|
-  user.skills << skills.pop
-  user.proficiencies.first.update(experience: rand(4), formal_education: true )
+  2.times do 
+    user.proficiencies << Proficiency.new(skill_id: rand(0..9), experience: rand(5), formal_education: [true,false].sample)
+  end
 end
+

@@ -13,6 +13,8 @@ get '/sessions/new' do
   erb :sign_in
 end
 
+
+
 post '/sessions' do
   # sign-in
   @email = params[:email]
@@ -20,6 +22,7 @@ post '/sessions' do
   if user
     # successfully authenticated; set up session and redirect
     session[:user_id] = user.id
+    puts "++++++++++++++++++++++++++++++++++++++++++++++++++"
     redirect '/'
   else
     # an error occurred, re-render the sign-in form, displaying an error
@@ -44,6 +47,12 @@ get '/users/new' do
   erb :sign_up
 end
 
+get '/users/:user_id' do
+  @user = User.find(params[:user_id])
+  erb :profile
+
+end
+
 post '/users' do
   # sign-up
   @user = User.new params[:user]
@@ -56,3 +65,13 @@ post '/users' do
     erb :sign_up
   end
 end
+
+
+#______________________skils________________
+get "/skills/:skill_id" do
+  @all_skills = Skill.all
+  @skill = Skill.find(params[:skill_id])
+  erb :skill
+end
+
+
